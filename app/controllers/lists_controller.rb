@@ -6,7 +6,8 @@ class ListsController < ApplicationController
   def create
     @list=List.new(list_params)
     if @list.save
-      redirect_to list_path(@list.id)
+      flash[:notice] = "投稿が成功しました"
+      redirect_to lists_path
     else
       render ("lists/new")
     end
@@ -28,6 +29,7 @@ class ListsController < ApplicationController
   def update
     list=List.find(params[:id])
     list.update(list_params)
+    flash[:notice] = "投稿が編集されました"
     redirect_to list_path(list.id)
   end
   def destroy

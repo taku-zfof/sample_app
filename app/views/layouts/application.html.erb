@@ -12,6 +12,11 @@
   </head>
 
   <body>
+    <%if flash[:notice]%>
+      <div class="flash">
+       <%= flash[:notice] %>
+      </div>
+    <%end%>
     <header>
       <h1 class="headline"> All Lists </h1>
     </header>
@@ -28,6 +33,8 @@
         </li>
       </ul>
     </nav>
+
+
     <main>
     <%= yield %>
     </main>
